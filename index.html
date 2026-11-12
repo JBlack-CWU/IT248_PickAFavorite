@@ -46,6 +46,7 @@
       background-size: 44px 44px;
       mask-image: linear-gradient(to bottom, black, transparent 80%);
     }
+    
 
     .site-shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; position: relative; }
     header { padding: 54px 0 28px; text-align: center; }
@@ -86,21 +87,21 @@
 
     .story { display: grid; gap: 26px; padding-bottom: 70px; }
     .story-card {
-      position: relative; overflow: hidden; padding: clamp(23px, 4vw, 42px);
-      border: 1px solid var(--line); border-radius: 22px;
-      background: linear-gradient(135deg, rgba(25,43,75,.88), var(--panel));
-      box-shadow: 0 18px 48px rgba(0,0,0,.2);
+      background-color: rgba(10, 20, 40, 0.90);
+      padding: 28px;
+      border-radius: 16px;
+      box-sizing: border-box;
     }
     .story-card::before {
       content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
       background: linear-gradient(90deg, var(--blue), var(--orange));
     }
-    .story-card h2 { margin: 0 0 15px; font-size: clamp(1.35rem, 3vw, 1.9rem); line-height: 1.2; }
+    .story-card h2 { margin: 0 0 15px; font-size: clamp(2rem, 3vw, 3.2rem); line-height: 1.2; }
     .story-card p { color: #d8e2f1; margin: 0; font-size: 1.02rem; }
     .story-card p + p { margin-top: 12px; }
     .section-number {
       display: block; margin-bottom: 10px; color: var(--orange-light);
-      font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+      font-size: 1.22rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
     }
 
     .media-slot {
@@ -108,7 +109,14 @@
       border-radius: 16px; overflow: hidden; background: rgba(4,12,26,.55);
       min-height: 190px; display: grid; place-items: center; position: relative;
     }
-    .media-slot img { width: 100%; height: 100%; max-height: 340px; object-fit: cover; display: block; }
+    .media-slot img {
+      display: block;
+      width: 100%;
+      max-width: 1920px;
+      height: auto;
+      object-fit: contain;
+      margin-left: auto;
+      margin-right: auto;}
     .placeholder {
       padding: 28px; text-align: center; color: #b8cbe3;
       font-size: .9rem;
@@ -143,11 +151,42 @@
       .split .media-slot { min-height: 190px; }
       .story-card { padding: 24px 20px; }
     }
+
+    .media {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.media img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.split {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+}
+
+.story-card {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
   </style>
     <header>
-      <div class="eyebrow">A personal player story</div>
+      <div class="eyebrow">A not so personal player story</div>
       <h1><span>Rocket League</span></h1>
-      <p class="subtitle">Competition, chaos, close games, and the people who make every match memorable.</p>
+      <p class="subtitle">Competition, chaos, close games, and the random guys who make every match memorable.</p>
     </header>
 
     <!-- Replace rocket-league-highlight.mp4 with your own MP4 file.
@@ -158,7 +197,7 @@
           <source src="Goal+CeleTrimAudioless.mp4" type="video/mp4" />
           Your browser does not support HTML video. Replace this text with a video link or try another browser.
         </video>
-        <div class="video-hint">Gameplay highlights · looping video</div>
+        <div class="video-hint">Some Random gameplay, why are you actually reading this? · looping video</div>
       </div>
     </section>
 
@@ -168,12 +207,11 @@
         <div class="split">
           <div class="copy">
             <h2>How has Rocket League been part of my life?</h2>
-            <p>Rocket League has been one of the few games I have been successful in competitively reaching top 10% worldwide in main modes and 3% in alternate modes. I have been playing on and off for 5 or so years. While it is a competitive outlet it is also just a fun game to sit down and play with the guys even when we lose until it isn’t of course…</p>
+            <p>Rocket League has been one of the few games I have had any notable success in competitively reaching top 7% worldwide in main modes and 3% in alternate modes. I have been playing on and off for 5 or so years. While it is a competitive outlet it is also just a fun game to sit down and play with the guys even when we lose until it isn’t of course…</p>
+            <div class="quote-line">“Why are they going for that...” — Every single match...</div>
           </div>
           <div class="media">
             <img src="Air1.png" alt="Rocket League rank screenshot">
-            <figure class="media-slot">
-              <div class="placeholder"><strong>Rank / achievement screenshot</strong>Add a screenshot showing your competitive rank or a memorable season finish.</div>
             </figure>
           </div>
         </div>
@@ -184,13 +222,11 @@
         <div class="split reverse">
           <div class="copy">
             <h2>What emotions or memories are attached to it?</h2>
-            <p>I find it’s a game that brings both Joy and Anger, it’s a competitive game and no one likes losing in a competitive environment, but when you step out of the competitive side and just play the game for fun with the guys its pure laughter. And while players may take to spamming “What A Save!” when you can’t save a shot we all know who’s really winning when the teams are 3 solo players vs 3 guys in a call goofing off.</p>
+            <p>I find it’s a game that brings both Joy and Anger, it’s a competitive game and no one likes losing in a competitive environment, but when you step out of the competitive side and just play the game for fun with the guys its pure laughter. And while players may take to spamming “What A Save!” when you can’t save a shot we all know who’s really winning when the teams are 3 solo players vs 3 guys in a call goofing off. At the same time it's a great way to stay connected with friends by simply sharing a competitive environment. At the same time I don't know a single player who dosent remember their first tournement win no matter what rank it was at the time. I still play with the guys I won my first tournement with 4 years later</p>
             <div class="quote-line">“What A Save!” — the soundtrack to a very normal, very calm match.</div>
           </div>
           <div class="media">
             <img src="Air2.png" alt="Rocket League rank screenshot">
-            <figure class="media-slot">
-              <div class="placeholder"><strong>Friends / funny match moment</strong>Drop in a screenshot from a chaotic game, party lobby, or unforgettable goal.</div>
             </figure>
           </div>
         </div>
@@ -201,19 +237,18 @@
         <div class="split">
           <div class="copy">
             <h2>Why would others appreciate it as much as you do?</h2>
-            <p>That’s the neat part, they won’t! It’s a complicated physics-based game that has skill-based matchmaking, so you rarely play matches where you are clearly better than your opponents. Generally speaking, the entire lobby is averaged out to a similar skill level. When you start the games stay grounded and uncontrolled but as players get better, they learn to control the ball even when its in the air or learn to read its bounces off the walls to predict where it will be the shoot off a rebound to score which creates a quite fun loop where you can see personal improvement over time despite it not being apparent in every game.</p>
+            <p>That’s the neat part, they likely won’t! It’s a complicated physics-based game that has skill-based matchmaking, so you rarely play matches where you are clearly better than your opponents. Generally speaking, the entire lobby is averaged out to a similar skill level. When you start the games stay grounded and uncontrolled but as players get better, they learn to control the ball even when its in the air or learn to read its bounces off the walls to predict where it will be the shoot off a rebound to score which creates a quite fun loop where you can see personal improvement over time despite it not being apparent in every game.</p>
+            <div class="quote-line">“#### I backflipped!” — Screamed at least 5 times a match.</div>
           </div>
           <div class="media">
             <img src="OpenNet.png" alt="Rocket League rank screenshot">
-            <figure class="media-slot">
-              <div class="placeholder"><strong>Aerial / wall-play screenshot</strong>Show the skill ceiling: an aerial touch, wall read, or rebound shot.</div>
             </figure>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>Rocket League · A game measured in goals, saves, and very questionable decisions.</footer>
+    <footer>Rocket League · A game measured in goals, saves, and very very very questionable decisions. Like ever installing this game!</footer>
   </div>
 </body>
 </html>
